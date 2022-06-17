@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# Teste Técnico para Front-End Developer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O seguinte repositório consiste em atender os requisitos funcionais e não funcionais abaixo:
 
-## Available Scripts
+## Funcionais
 
-In the project directory, you can run:
+- Como usuário gostaria de digitar algumas palavras e ver uma lista de livros que tenha relação com a minha busca;
 
-### `npm start`
+- Como usuário gostaria de clicar em um destes livros para ver em detalhes as descrições do livro;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Como usuário gostaria de marcar o livro como favorito para, futuramente filtrá-los por isso;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Como usuário eu devo utilizar um paginador para acessar o restante dos resultados;
 
-### `npm test`
+- Como usuário eu gostaria de abrir o site em um dispositivo móvel sem comprometer a navegação do site;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Como desenvolvedor gostaria de realizar testes unitários para garantir a integridade do que está sendo desenvolvido.
 
-### `npm run build`
+## Não Funcionais
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Você deve utilizar o framework React e Typescript;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Tente reutilizar o máximo possível de código;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Para teste utilize a ferramenta que desejar, como: Jasmine, Karma, Mocha;
 
-### `npm run eject`
+- Layout pode ser utilizado frameworks como Bootstrap, Bulma, Tailwind, etc;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Se precisar utilize automatizadores de tarefa como Gulp, Webpack, etc;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Realize commits (git) constantes de acordo com o progresso das atividades.
