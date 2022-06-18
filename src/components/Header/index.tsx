@@ -1,11 +1,29 @@
-import { Stack, Heading } from '@chakra-ui/react';
+import {
+  HStack,
+  Heading,
+  Spacer,
+  IconButton,
+  useColorMode,
+} from '@chakra-ui/react';
+
 import { HeaderDictionary } from 'dictionary/home';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = () => {
+  const { toggleColorMode, colorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
+
   return (
-    <Stack>
+    <HStack>
       <Heading as='h1'>{HeaderDictionary.HeadlingText}</Heading>
-    </Stack>
+      <Spacer />
+
+      <IconButton
+        aria-label='Theme toggle mode'
+        onClick={toggleColorMode}
+        icon={isDark ? <FaSun /> : <FaMoon />}
+      />
+    </HStack>
   );
 };
 

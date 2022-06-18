@@ -1,8 +1,9 @@
-import { SimpleGrid, GridItem, VStack } from '@chakra-ui/react';
+import { SimpleGrid, GridItem, VStack, Box } from '@chakra-ui/react';
 import Book from 'components/Book';
 import { useBooksList } from 'services/useBook';
 import { useCallback, useState } from 'react';
 import Pagination from './Pagination';
+import SearchInput from 'components/SearchInput';
 
 const ListBooks = () => {
   const [page, setPage] = useState(0);
@@ -17,25 +18,27 @@ const ListBooks = () => {
   }, []);
 
   return (
-    <>
+    <Box maxWidth={1080}>
+      <Box my={8}>
+        <SearchInput />
+      </Box>
+
       <SimpleGrid
-        maxWidth='1080'
-        columns={{ sm: 1, md: 2, lg: 4 }}
+        columns={{ sm: 1, md: 3, lg: 4 }}
         spacing='16px'
-        border='1px'
         width={{
           sm: '100%',
           md: 'auto',
         }}
       >
-        {data?.items.map((book, index) => (
-          <GridItem key={'book' + index.toString()}>
+        {data?.items.map((book) => (
+          <GridItem key={book.id}>
             <Book {...book} />
           </GridItem>
         ))}
       </SimpleGrid>
 
-      <VStack>
+      <VStack py={4}>
         <Pagination
           currentPage={page + 1}
           handleNext={handleNext}
@@ -44,7 +47,7 @@ const ListBooks = () => {
           isDisabledNext={data?.items.length === 0 || isPreviousData}
         />
       </VStack>
-    </>
+    </Box>
   );
 };
 
