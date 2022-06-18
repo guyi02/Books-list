@@ -1,9 +1,16 @@
 import { Box, Input } from '@chakra-ui/react';
+import { Search } from 'dictionary/home';
+import { SearchInputProps } from './types';
 
-const SearchInput = () => {
+const SearchInput = ({ value, handleChange }: SearchInputProps) => {
   return (
-    <Box w='100%'>
-      <Input placeholder='Search for book' />
+    <Box width='400px'>
+      <Input
+        placeholder={Search.PlaceHolderText}
+        _placeholder={{ color: 'gray.500' }}
+        value={value}
+        onChange={handleChange}
+      />
     </Box>
   );
 };

@@ -1,1 +1,1 @@
-export const useBooksListKey = (id?: string) => ['useBooksListKey', id];
+export const useBooksListKey = (page: string) => ['useBooksListKey', page];

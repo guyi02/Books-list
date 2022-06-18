@@ -12,16 +12,16 @@ import { AiFillHeart } from 'react-icons/ai';
 import { Book as BookProps } from 'services/useBook/types';
 import { useFavorites } from 'store/useFavorites';
 
-const Book = ({ id, volumeInfo, saleInfo }: BookProps) => {
-  const favBooks = useFavorites((state) => state.books);
-  const handleBookFav = useFavorites((state) => state.setBook);
+const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
+  const favoritesBooks = useFavorites((state) => state.books);
+  const handleBookFavorite = useFavorites((state) => state.setBook);
 
   const isFavorite = useMemo(
-    () => favBooks.find((favBook) => favBook.id === id),
-    [favBooks, id]
+    () => favoritesBooks.find((favBook) => favBook.id === id),
+    [favoritesBooks, id]
   );
   return (
-    <Stack shadow='md' borderWidth='1px' minHeight={300}>
+    <Stack shadow='md' borderWidth='1px' borderRadius='md' minHeight={300}>
       <Flex flexDirection='column'>
         <Image
           objectFit='contain'
@@ -47,7 +47,7 @@ const Book = ({ id, volumeInfo, saleInfo }: BookProps) => {
 
           <IconButton
             onClick={() =>
-              handleBookFav({
+              handleBookFavorite({
                 id,
                 volumeInfo,
                 saleInfo,
@@ -63,4 +63,4 @@ const Book = ({ id, volumeInfo, saleInfo }: BookProps) => {
   );
 };
 
-export default Book;
+export default BookCard;

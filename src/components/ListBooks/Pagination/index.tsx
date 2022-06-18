@@ -1,4 +1,5 @@
 import { HStack, Button, Text } from '@chakra-ui/react';
+import { PaginationTexts } from 'dictionary/home';
 import { PaginationProps } from './types';
 
 const Pagination = ({
@@ -11,13 +12,13 @@ const Pagination = ({
   return (
     <HStack>
       <Button disabled={isDisabledPrevious} onClick={handlePrevious}>
-        Previous
+        {PaginationTexts.Previous}
       </Button>
 
       <Text>{currentPage}</Text>
 
       <Button disabled={isDisabledNext} onClick={handleNext}>
-        Next
+        {PaginationTexts.Next}
       </Button>
     </HStack>
   );
