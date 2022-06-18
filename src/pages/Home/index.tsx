@@ -1,10 +1,15 @@
-import { Box, Text } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
+import Header from 'components/Header';
+import ListBooks from 'components/ListBooks';
+import SearchInput from 'components/SearchInput';
 
 const Home = () => {
   return (
-    <Box>
-      <Text>Hello World</Text>
-    </Box>
+    <VStack>
+      <Header />
+      <SearchInput />
+      <ListBooks />
+    </VStack>
   );
 };
 
