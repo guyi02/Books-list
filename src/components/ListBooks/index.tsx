@@ -28,12 +28,13 @@ const ListBooks = () => {
   } = useBooksList(searchTerm, page, page * 12);
 
   useEffect(() => {
+    setPage(0);
     refetch();
   }, [debouncedValue, refetch]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-  };
+  }, []);
 
   const handlePrevious = useCallback(() => {
     setPage((currentPage) => currentPage - 1);
