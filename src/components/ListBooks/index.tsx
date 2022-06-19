@@ -13,6 +13,7 @@ import Pagination from './Pagination';
 import SearchInput from 'components/SearchInput';
 import useDebounce from 'hooks/useDebounce';
 import EmptyState from 'components/EmptyState';
+import { EmptyStateTexts } from 'dictionary/home';
 
 const ListBooks = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -55,7 +56,7 @@ const ListBooks = () => {
       </Flex>
 
       {!bookList?.items && !isLoading ? (
-        <EmptyState />
+        <EmptyState text={EmptyStateTexts.messageErrorSearch} />
       ) : (
         <>
           <SimpleGrid

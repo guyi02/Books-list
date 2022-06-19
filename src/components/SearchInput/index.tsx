@@ -4,8 +4,9 @@ import { SearchInputProps } from './types';
 
 const SearchInput = ({ value, handleChange }: SearchInputProps) => {
   return (
-    <Box width='400px'>
+    <Box width={['100%', '400px']}>
       <Input
+        data-testid='input-search'
         placeholder={Search.PlaceHolderText}
         _placeholder={{ color: 'gray.500' }}
         value={value}

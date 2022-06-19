@@ -14,7 +14,7 @@ type VolumeInfo = {
 };
 
 type SalesInfo = {
-  buyLink: string;
+  buyLink?: string;
 };
 
 export type Book = {

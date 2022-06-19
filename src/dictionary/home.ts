@@ -12,4 +12,6 @@ export const PaginationTexts = {
 export const EmptyStateTexts = {
   messageErrorSearch:
     'Ops, não encontramos nenhum livro com o texto digitado. Tente buscar novamente',
+  messageEmptyFavotiteList:
+    'Você não possui nenhum livro marcado como favorito',
 };

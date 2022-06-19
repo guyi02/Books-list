@@ -28,7 +28,7 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
           marginTop={4}
           width='100%'
           height='150px'
-          alt='Imagem teste'
+          alt='Imagem do livro'
           src={
             volumeInfo.imageLinks
               ? volumeInfo.imageLinks.thumbnail
@@ -39,13 +39,14 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
           <Text noOfLines={2}>{volumeInfo.title}</Text>
         </Center>
         <Flex flexDirection='row' justifyContent='space-between' px={4}>
-          <Tag size='sm' variant='subtle'>
-            {volumeInfo.categories
-              ? volumeInfo.categories.toString().toLowerCase()
-              : 'no-category'}
+          <Tag size='sm' variant='subtle' data-testid='category-tag'>
+            {!volumeInfo.categories
+              ? 'no-category'
+              : volumeInfo.categories.toString().toLowerCase()}
           </Tag>
 
           <IconButton
+            data-testid='favorite-icon-button'
             onClick={() =>
               handleBookFavorite({
                 id,
