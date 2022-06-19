@@ -4,6 +4,16 @@ import '@testing-library/jest-dom/extend-expect';
 import BookCard from 'components/BookCard';
 import { mockBook } from 'components/BookCard/utils';
 
+window.matchMedia =
+  window.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    };
+  };
+
 describe('BookCard component', () => {
   it('should render BookCard with image src from google api', () => {
     render(<BookCard {...mockBook} />);
