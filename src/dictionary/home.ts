@@ -1,5 +1,10 @@
 export const HeaderDictionary = {
   HeadlingText: 'Google Books',
+  AriaLabelDrawer: 'Drawer show favorites',
+  TooltipFavorite: 'Favorites Books',
+  AriaLabelTheme: 'Theme toggle mode',
+  TooltipTheme: 'Page Theme',
+  DrawerTitle: 'Favorites Books',
 };
 export const Search = {
   PlaceHolderText: 'Search for book',
@@ -11,7 +16,6 @@ export const PaginationTexts = {
 };
 export const EmptyStateTexts = {
   messageErrorSearch:
-    'Ops, não encontramos nenhum livro com o texto digitado. Tente buscar novamente',
-  messageEmptyFavotiteList:
-    'Você não possui nenhum livro marcado como favorito',
+    'Oops, no book was found with the text you typed. Try again.',
+  messageEmptyFavotiteList: `You don't have any books bookmarked.`,
 };

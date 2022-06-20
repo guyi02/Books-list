@@ -14,6 +14,7 @@ import {
   DrawerHeader,
   useDisclosure,
   DrawerBody,
+  Tooltip,
 } from '@chakra-ui/react';
 
 import { HeaderDictionary } from 'dictionary/home';
@@ -35,38 +36,44 @@ const Header = () => {
       <Flex width='100%'>
         <Heading as='h1'>{HeaderDictionary.HeadlingText}</Heading>
         <Spacer />
-        <Box position='relative'>
+        <Tooltip label={HeaderDictionary.TooltipFavorite}>
+          <Box position='relative'>
+            <IconButton
+              mx={6}
+              aria-label={HeaderDictionary.AriaLabelDrawer}
+              onClick={onOpen}
+              icon={<AiFillHeart />}
+            />
+            <Center
+              position='absolute'
+              top={0}
+              right={6}
+              backgroundColor='red.200'
+              height={4}
+              width={4}
+              borderRadius='full'
+              justifyContent='center'
+              alignItems='center'
+            >
+              <Text fontSize='12px'>{favoritesBooks.length}</Text>
+            </Center>
+          </Box>
+        </Tooltip>
+        <Tooltip label={HeaderDictionary.TooltipTheme}>
           <IconButton
-            mx={6}
-            aria-label='Drawer favorites'
-            onClick={onOpen}
-            icon={<AiFillHeart />}
+            aria-label={HeaderDictionary.AriaLabelTheme}
+            onClick={toggleColorMode}
+            icon={isDark ? <FaSun /> : <FaMoon />}
           />
-          <Center
-            position='absolute'
-            top={0}
-            right={6}
-            backgroundColor='red.200'
-            height={4}
-            width={4}
-            borderRadius='full'
-            justifyContent='center'
-            alignItems='center'
-          >
-            <Text fontSize='12px'>{favoritesBooks.length}</Text>
-          </Center>
-        </Box>
-        <IconButton
-          aria-label='Theme toggle mode'
-          onClick={toggleColorMode}
-          icon={isDark ? <FaSun /> : <FaMoon />}
-        />
+        </Tooltip>
       </Flex>
 
       <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth='1px'>Livros favoritos</DrawerHeader>
+          <DrawerHeader borderBottomWidth='1px'>
+            {HeaderDictionary.DrawerTitle}
+          </DrawerHeader>
           <DrawerBody>
             {favoritesBooks.length === 0 ? (
               <EmptyState text={EmptyStateTexts.messageEmptyFavotiteList} />

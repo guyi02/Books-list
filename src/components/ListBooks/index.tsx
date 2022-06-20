@@ -1,3 +1,4 @@
+import { useCallback, useState, ChangeEvent, useEffect, useRef } from 'react';
 import {
   SimpleGrid,
   GridItem,
@@ -8,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import BookCard from 'components/BookCard';
 import { useBooksList } from 'services/useBook';
-import { useCallback, useState, ChangeEvent, useEffect } from 'react';
+
 import Pagination from './Pagination';
 import SearchInput from 'components/SearchInput';
 import useDebounce from 'hooks/useDebounce';
@@ -16,6 +17,7 @@ import EmptyState from 'components/EmptyState';
 import { EmptyStateTexts } from 'dictionary/home';
 
 const ListBooks = () => {
+  const listRef = useRef<HTMLDivElement | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const debouncedValue = useDebounce(searchTerm, 1500);
   const [page, setPage] = useState<number>(0);
@@ -36,16 +38,24 @@ const ListBooks = () => {
     setSearchTerm(event.target.value);
   }, []);
 
+  const scrollToTop = () =>
+    setTimeout(() => {
+      listRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 500);
+
   const handlePrevious = useCallback(() => {
     setPage((currentPage) => currentPage - 1);
+    scrollToTop();
   }, []);
 
   const handleNext = useCallback(() => {
     setPage((currentPage) => currentPage + 1);
+    scrollToTop();
   }, []);
 
   return (
     <Box
+      ref={listRef}
       maxWidth={1080}
       px={{
         sm: 4,
