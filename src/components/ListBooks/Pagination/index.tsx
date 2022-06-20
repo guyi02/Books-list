@@ -10,7 +10,7 @@ const Pagination = ({
   isDisabledNext,
 }: PaginationProps) => {
   return (
-    <HStack>
+    <HStack data-testid='pagination-wrapper'>
       <Button disabled={isDisabledPrevious} onClick={handlePrevious}>
         {PaginationTexts.Previous}
       </Button>

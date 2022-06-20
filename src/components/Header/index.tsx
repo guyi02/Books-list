@@ -17,13 +17,12 @@ import {
   Tooltip,
 } from '@chakra-ui/react';
 
-import { HeaderDictionary } from 'dictionary/home';
+import { HeaderDictionary, EmptyStateTexts } from 'dictionary/home';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { AiFillHeart } from 'react-icons/ai';
 import { useFavorites } from 'store/useFavorites';
 import BookCard from 'components/BookCard';
 import EmptyState from 'components/EmptyState';
-import { EmptyStateTexts } from 'dictionary/home';
 
 const Header = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -36,6 +35,7 @@ const Header = () => {
       <Flex width='100%'>
         <Heading as='h1'>{HeaderDictionary.HeadlingText}</Heading>
         <Spacer />
+
         <Tooltip label={HeaderDictionary.TooltipFavorite}>
           <Box position='relative'>
             <IconButton
@@ -59,6 +59,7 @@ const Header = () => {
             </Center>
           </Box>
         </Tooltip>
+
         <Tooltip label={HeaderDictionary.TooltipTheme}>
           <IconButton
             aria-label={HeaderDictionary.AriaLabelTheme}

@@ -7,13 +7,13 @@ import {
   Skeleton,
   Flex,
 } from '@chakra-ui/react';
-import BookCard from 'components/BookCard';
 import { useBooksList } from 'services/useBook';
-
-import Pagination from './Pagination';
-import SearchInput from 'components/SearchInput';
 import useDebounce from 'hooks/useDebounce';
+
+import BookCard from 'components/BookCard';
+import Pagination from 'components/ListBooks/Pagination';
 import EmptyState from 'components/EmptyState';
+import SearchInput from 'components/SearchInput';
 import { EmptyStateTexts } from 'dictionary/home';
 
 const ListBooks = () => {
@@ -54,14 +54,7 @@ const ListBooks = () => {
   }, []);
 
   return (
-    <Box
-      ref={listRef}
-      maxWidth={1080}
-      px={{
-        sm: 4,
-        md: 'unset',
-      }}
-    >
+    <Box ref={listRef} maxWidth={1080} px={[4, 0]}>
       <Flex my={8} justifyContent='center' alignItems='center'>
         <SearchInput value={searchTerm} handleChange={handleChange} />
       </Flex>
@@ -83,13 +76,7 @@ const ListBooks = () => {
                   .fill(null)
                   .map((_, index) => (
                     <GridItem key={'skeleton-key-' + index}>
-                      <Skeleton
-                        minHeight={250}
-                        minWidth={{
-                          sm: '400px',
-                          md: 260,
-                        }}
-                      />
+                      <Skeleton minHeight={250} minWidth={['350px', '260px']} />
                     </GridItem>
                   ))
               : bookList?.items.map((book) => (

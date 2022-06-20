@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import BookCard from 'components/BookCard';
 import { mockBook } from 'components/BookCard/utils';
+import { BookCardDictionary } from 'dictionary/home';
 
 window.matchMedia =
   window.matchMedia ||
@@ -59,5 +60,13 @@ describe('BookCard component', () => {
     render(<BookCard {...mockBook} />);
     const favoriteButton = screen.getByTestId(/favorite-icon-button/);
     expect(favoriteButton).toBeInTheDocument();
+  });
+
+  it('should BookCard component open modal after click', () => {
+    const { getByTestId, getByText } = render(<BookCard {...mockBook} />);
+    const areaToClick = getByTestId(/area-clickable-to-show-details/);
+    fireEvent.click(areaToClick);
+    const modal = getByText(BookCardDictionary.ModalTitle);
+    expect(modal).toBeInTheDocument();
   });
 });

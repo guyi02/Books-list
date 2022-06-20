@@ -11,6 +11,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import ModalBookDetail from 'components/Modal/ModalBookDetail';
+import { BookCardDictionary } from 'dictionary/home';
 import { useMemo } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { Book as BookProps } from 'services/useBook/types';
@@ -45,13 +46,17 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
   return (
     <Stack shadow='md' borderWidth='1px' borderRadius='md' minHeight={300}>
       <Flex flexDirection='column'>
-        <Box onClick={onOpen} cursor='pointer'>
+        <Box
+          onClick={onOpen}
+          cursor='pointer'
+          data-testid='area-clickable-to-show-details'
+        >
           <Image
             objectFit='contain'
             marginTop={4}
             width='100%'
             height='150px'
-            alt='Imagem do livro'
+            alt={BookCardDictionary.AltImage + volumeInfo.title}
             src={imageSrc}
           />
           <Center p={4} minHeight='80px'>
@@ -72,7 +77,7 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
                 saleInfo,
               })
             }
-            aria-label='Favorite Icon'
+            aria-label={BookCardDictionary.AriaLabelIconFavorite}
             color={isFavorite ? 'red.200' : 'black.200'}
             icon={<AiFillHeart />}
           />
@@ -80,7 +85,8 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
       </Flex>
 
       <ModalBookDetail
-        modalTitle='Informações do livro'
+        data-testid='modal-book-details'
+        modalTitle={BookCardDictionary.ModalTitle}
         isOpen={isOpen}
         onClose={onClose}
       >
@@ -90,10 +96,10 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
               borderRadius='lg'
               width={{ md: 40 }}
               src={imageSrc}
-              alt='Imagem do livro'
+              alt={BookCardDictionary.AltImage + volumeInfo.title}
             />
             <Text mt={2} color='gray.500'>
-              publicado:{' '}
+              {BookCardDictionary.PublishedText}:{' '}
               {new Date(volumeInfo.publishedDate).toLocaleDateString('pt-Br')}
             </Text>
           </Box>
