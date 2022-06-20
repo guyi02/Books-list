@@ -29,3 +29,11 @@ O seguinte repositório consiste em atender os requisitos funcionais e não func
 - Se precisar utilize automatizadores de tarefa como Gulp, Webpack, etc;
 
 - Realize commits (git) constantes de acordo com o progresso das atividades.
+
+## Preview
+
+https://user-images.githubusercontent.com/13474328/174505536-9b67c292-8c47-4642-a96a-50812ebeee6d.mov
+
+
+
+
