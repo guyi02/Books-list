@@ -43,26 +43,21 @@ const BookCard = ({ id, volumeInfo, saleInfo }: BookProps) => {
   );
 
   return (
-    <Stack
-      onClick={onOpen}
-      shadow='md'
-      borderWidth='1px'
-      borderRadius='md'
-      minHeight={300}
-      cursor='pointer'
-    >
+    <Stack shadow='md' borderWidth='1px' borderRadius='md' minHeight={300}>
       <Flex flexDirection='column'>
-        <Image
-          objectFit='contain'
-          marginTop={4}
-          width='100%'
-          height='150px'
-          alt='Imagem do livro'
-          src={imageSrc}
-        />
-        <Center p={4} minHeight='80px'>
-          <Text noOfLines={2}>{volumeInfo.title}</Text>
-        </Center>
+        <Box onClick={onOpen} cursor='pointer'>
+          <Image
+            objectFit='contain'
+            marginTop={4}
+            width='100%'
+            height='150px'
+            alt='Imagem do livro'
+            src={imageSrc}
+          />
+          <Center p={4} minHeight='80px'>
+            <Text noOfLines={2}>{volumeInfo.title}</Text>
+          </Center>
+        </Box>
         <Flex flexDirection='row' justifyContent='space-between' px={4}>
           <Tag size='sm' variant='subtle' data-testid='category-tag'>
             {bookCategory}
