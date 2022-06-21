@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import Pagination from 'components/ListBooks/Pagination';
 import { PaginationTexts } from 'dictionary/home';
-import { mockPagination } from 'components/ListBooks/Pagination/utils';
+import { mockPagination } from 'components/ListBooks/utils';
 
 describe('Pagination component', () => {
   it('should render Pagination initial props', () => {
