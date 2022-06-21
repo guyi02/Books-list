@@ -30,10 +30,16 @@ O seguinte repositório consiste em atender os requisitos funcionais e não func
 
 - Realize commits (git) constantes de acordo com o progresso das atividades.
 
+## Instalação e testes
+
+- `npm install` ou `yarn install`
+
+- executa um teste geral: `npm run test` ou `yarn test`
+
+- executa um teste geral com coverage: `npm run test:coverage` ou `yarn test:coverage`
+
+- testes com o modo watch: `npm run test:watch` ou `yarn test:watch`
+
 ## Preview
 
 https://user-images.githubusercontent.com/13474328/174505536-9b67c292-8c47-4642-a96a-50812ebeee6d.mov
-
-
-
-
